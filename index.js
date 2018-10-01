@@ -96,6 +96,7 @@ function createModelFromSchema(name, Type) {
     }
     if (Type.methods) {
       Object.keys(Type.methods).forEach(function (key) {
+        if (!Type.prototype) Type.prototype = {};
         Type.prototype[key] = Type.methods[key];
       });
     }
